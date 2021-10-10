@@ -21,7 +21,7 @@ public class GreetingService {
         return greetingRepository.findAll();
     }
 
-    public Greeting addTeachers(Greeting greetingEntity) {
-        return greetingRepository.save(greetingEntity);
+    public Greeting addGreeting(Greeting greeting) {
+        return greetingRepository.save(greeting);
     }
 }
