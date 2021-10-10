@@ -38,4 +38,8 @@ public class GreetingController {
         return greetingService.addGreeting(greeting);
     }
 
+    @PutMapping(value = "/updateGreeting")
+    public Greeting updateGreeting(@RequestBody Greeting greeting) {
+        return greetingService.updateGreeting(greeting);
+    }
 }

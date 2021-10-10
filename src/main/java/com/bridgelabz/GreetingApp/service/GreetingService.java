@@ -13,7 +13,7 @@ public class GreetingService {
     @Autowired
     GreetingRepository greetingRepository;
 
-    public String helloGreeting(){
+    public String helloGreeting() {
         return "Hello Sheetal";
     }
 
@@ -22,6 +22,10 @@ public class GreetingService {
     }
 
     public Greeting addGreeting(Greeting greeting) {
+        return greetingRepository.save(greeting);
+    }
+
+    public Greeting updateGreeting(Greeting greeting) {
         return greetingRepository.save(greeting);
     }
 }
