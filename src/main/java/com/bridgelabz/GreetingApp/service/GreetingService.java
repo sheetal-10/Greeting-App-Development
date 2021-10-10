@@ -39,4 +39,11 @@ public class GreetingService {
         return "Record does not exists with this id : " + id;
     }
 
+    public Greeting getGreetingById(int id) {
+        Optional<Greeting> greeting = greetingRepository.findById(id);
+        if (greeting.isPresent()) {
+            return greeting.get();
+        }
+        return null;
+    }
 }
