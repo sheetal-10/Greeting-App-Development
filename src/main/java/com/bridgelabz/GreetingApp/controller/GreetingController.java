@@ -1,11 +1,11 @@
 package com.bridgelabz.GreetingApp.controller;
 
+import com.bridgelabz.GreetingApp.entity.Greeting;
 import com.bridgelabz.GreetingApp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class GreetingController {
@@ -28,9 +28,14 @@ public class GreetingController {
         return "Hello : " + fname + " " + lname;
     }
 
-    @GetMapping("/greeting")
-    public String greetingService() {
-        return greetingService.helloGreeting();
+    @GetMapping(value = "/greetings")
+    public List<Greeting> greetings() {
+        return greetingService.greetings();
+    }
+
+    @PostMapping("/addGreeting")
+    public Greeting addStudent(@RequestBody Greeting greetingEntity) {
+        return greetingService.addTeachers(greetingEntity);
     }
 
 }
